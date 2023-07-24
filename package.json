@@ -1,0 +1,21 @@
+{
+  "name": "metacommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "excel4node": "^1.8.2",
+    "exceljs": "^4.3.0",
+    "fs": "^0.0.1-security",
+    "google-spreadsheet": "^4.0.2"
+  }
+}
