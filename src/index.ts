@@ -121,7 +121,7 @@ function createReportDataFromAPI() {
 
     // Записываем данные из API
     filteredDataFromApi.forEach((entry) => {
-        sheet.appendRow([entry.API, entry.Description, entry.Auth, entry.HTTPS, entry.Cors, { text: entry.Link, hyperlink: entry.Link }, entry.Category]);
+        sheet.appendRow([entry.API, entry.Description, entry.Auth, entry.HTTPS, entry.Cors, entry.Link, entry.Category]);
     });
 }
 
