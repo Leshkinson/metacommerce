@@ -2,10 +2,7 @@ import axios from "axios";
 import * as dotenv from 'dotenv';
 import Excel, {Worksheet} from "exceljs";
 import {GoogleSpreadsheet} from 'google-spreadsheet';
-//import fs from "fs";
-// const sheets = google.sheets('v4');
-// const { google } = require('googleapis');
-// const {authenticate} = require('@google-cloud/local-auth');
+
 dotenv.config();
 
 interface IEntry {
@@ -63,7 +60,7 @@ class CreateReport {
 
         await this.workbook.xlsx.writeFile('report.xlsx');
     }
-//1. Создать с помощью nodeJS отчет в Google Sheets
+//2. Создать с помощью nodeJS отчет в Google Sheets
     public async createSheet(url: string, title: string, GOOGLE_SERVICE_ACCOUNT_EMAIL: string, GOOGLE_PRIVATE_KEY: string): Promise<void> {
         const data = await this.getDataFromApi(url);
         const arrayHeaders = await this.getArrayOfHeaders(data);
@@ -114,7 +111,7 @@ function createReportDataFromAPI() {
         .sort((entryA, entryB) => entryA.API.localeCompare(entryB.API));
 
     // Получаем заголовки из API
-    //const arrayHeaders = [...new Set(data.flatMap((item) => Object.keys(item)))];
+    //const arrayHeaders = [...new Set(data.map((item: IEntry) => Object.keys(item)).flat())];
     const arrayHeaders = ["API", "Description", "Auth", "HTTPS", "Cors", "Link", "Category"];
     // Получаем активный лист в Google Sheets
     const sheet = SpreadsheetApp.getActiveSheet();
